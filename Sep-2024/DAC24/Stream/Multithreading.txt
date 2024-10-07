@@ -1,0 +1,91 @@
+Each thread in java is an object.
+We can create thread by using one of the following
+1. Using Thread class
+2. Using Runnable interface
+
+The starting point of the thread is the respective run() method.
+
+run() gets called when any thread is started using start() method.
+Whatever we write in run(), thread will do only that task.
+
+Thread class
+---------------
+super(threadname);		//will set the name of the thread using constructor
+setName(threadname);		//will set the name of the thread using method
+getName();			//will return the name of the thread
+
+
+Order of execution of thread is not fixed.
+
+Thread.currentThread() ==> Returns current active/running thread.
+Thread.sleep(time in ms) ==> Current Thread execution stops for the given time (1000 ms = 1 second) and then resumes its work after the time is completed.
+
+----------------------------------------
+join() ;
+Ex: Ram and Mohan friends
+Mohan reaches a point and call Ram "I am waiting here for you, you complete your task and then join me at the given meeting point"
+
+Mohan will call :   Ram.join();		//Mohan is waiting for Ram to complete his task and join
+
+Mohan is current running thread.
+----------------------------------------
+
+Runnable object becomes Thread object when we wrap that Runnable object into Thread object by creating a Thread object using the Thread constructor which takes Runnable object as argument.
+
+Ex.
+class MyThread implements Runnable
+{
+	public void run()
+	{
+		//do task
+	}
+}
+
+
+MyThread mt1 = new MyThread();		//Runnable object
+Thread t1 = new Thread(mt1); 		//Thread object
+t1.start();				//Conrol will go in the run() method of MyThread class.
+
+----------------------------------------------
+Advantage of using Runnable:
+Using Runnable gives space to the class to extend or inherit some other class (except Thread)
+-----------------------------------------------
+
+If a method/code block is synchronized, then only one thread can access it (can acuire lock/monitor/semaphore) at a particular time using the object( say obj A). Other threads can not access that synchronized method/block through the same object (i.e. obj A) at the same time but the thread which is trying to access the synchronized method/block using different object (say obj B) can access that synchronized method/block at that time.
+
+----------------------------------------------------
+
+synchronized is a keyword to make the method/code block synchronized so that only one thread can access it at the same time through the same object.
+
+synchronized method
+synchronized block
+
+sleep() method never releases lock.
+
+----------------------------------------------------
+
+If a thread acquires a lock over a resource (object), then other threads can not access any synchronized block or method using that resource (object). But non-synchronized method/block can be accessed at the same time by other threads even if lock is still not released.
+
+----------------------------------------------------
+
+wait(), notify() and notifyAll() - these are Object class' methods and NOT of Thread class.
+These three are final methods of the Object class, so can not be overriden.
+Daemon thread is a low priority thread for which JVM does not wait to complete their task and can terminate those thread if task of other non-daemon threads is completed.
+
+We can make a thread daemon by
+thread1.setDaemon(true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+

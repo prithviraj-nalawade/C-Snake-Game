@@ -1,0 +1,87 @@
+Stream API
+------------
+
+It is used to process the collection of objects using the various intermediate and terminating methods.
+Stream is basically sequence of objects.
+It takes input from the Collections, Arrays, I/O channel.
+It enable us to perform operations like filtering, mapping, reducing, and sorting.
+Stream can be sequential or parallel.
+
+It contains
+- Intermediate operations (Lazy operations) stateless and stateful
+- Terminate operations
+
+Important methods:
+map()		- intermediate operation, stateless
+filter() 	- intermediate operation, stateless
+peek() 		- intermediate operation
+sorted()	- intermediate operation, stateful
+of()		- intermediate operation
+distinct()	- intermediate operation, stateful
+reduce() 	- terminal operation
+forEach() 	- terminal operation
+min() 		- terminal operation
+max() 		- terminal operation
+collect() 	- terminal operation
+
+studList.stream();
+studList.parallelStream();
+
+
+Intermediate operations are further divided into stateless and stateful operations. Stateless operations, such as filter and map, retain no state from previously seen element when processing a new element -- each element can be processed independently of operations on other elements. Stateful operations, such as distinct and sorted, may incorporate state from previously seen elements when processing new elements.
+
+Stateful operations may need to process the entire input before producing a result. For example, one cannot produce any results from sorting a stream until one has seen all elements of the stream. 
+
+Method Reference
+---------------------
+Method reference is used to refer method of functional interface. It is compact and easy form of lambda expression. Each time when using lambda expression to just referring a method, we can replace lambda expression with method reference. 
+
+
+There are following types of method references in java:
+
+Reference to a static method.
+Reference to an instance method. (Using class, Using object)
+Reference to a constructor.
+
+----------------------------------------------
+
+MyComparatorInterface<Student> mci = Student::compareStudAge;		//non-static method of Student
+
+The above statement is equivalent to:
+MyComparatorInterface<Student> mci = (st1, st2) ->  st1.compareStudAge(st2);
+
+
+MySupplierInterface<Student> msi = () -> new Student();
+
+The above statement is equivalent to:
+MySupplierInterface<Student> msi = Student::new;
+
+----------------------------------
+studList.forEach(System.out::println);
+studList.forEach(e -> System.out.println(e));
+
+Both are equivalent.
+----------------------------------
+
+Stream can not be reused once it is terminated or closed.
+
+Stream<Student> studStream = studList.stream();
+System.out.println("Stream of students output: ");
+//studStream.forEach(ob -> System.out.println(ob));
+studStream.forEach(System.out::println);  //forEach is a terminating operation. 
+						//Hence stream is closed here.
+
+System.out.println("Again printin the same stream of students: ");
+studStream.forEach(System.out::println);		//Exception as stream is already closed.
+
+------------------------------------------------
+
+		
+		
+                
+
+
+
+
+
+

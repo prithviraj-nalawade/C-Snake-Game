@@ -1,0 +1,43 @@
+interface MyInterface1
+{
+	void myFun();
+}
+
+class MyClass implements MyInterface1
+{
+	void myFun()
+	{
+		System.out.println("Hello");
+	}
+}
+
+MyClass mcls1 = new MyClass();
+mcls1.myFun();
+
+
+----------------------------
+
+//anonymous inner class define and creating object
+MyInterface1 mif1 = new MyInterface1()
+{
+	void myFun()
+	{
+		System.out.println("Hello");
+	}
+}
+
+mif1.myFun();
+
+---------------------------
+
+MyInterface1 mif1 = () -> {System.out.println("Hello");};
+mif1.myFun();
+
+---------------------------
+---------------------------
+
+MyInterface1 mif1 = () -> System.out.println("Hello");
+mif1.myFun();
+
+
+

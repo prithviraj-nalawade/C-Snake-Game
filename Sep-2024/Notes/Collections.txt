@@ -1,0 +1,175 @@
+Collections
+-------------
+
+Collection framework provides various classes/interfaces.
+Each collection class is known as container class.
+We can create object of container class i.e. container object
+That container object will contain a no. of data in terms of objects.
+Collection can store only objects and not primitive data.
+
+All the collection classes/interfaces are available in java.util package.
+Collection class container stores references of the object.
+
+ArrayList
+----------
+interface A;
+class B implements A;
+
+A ref = new B();
+
+List -- interface
+ArrayList implements List
+
+List<String> strList1 = new ArrayList<String>();		//OK
+List<String> strList1 = new ArrayList<>();			//OK
+
+
+------------------------------------
+
+List  
+- Stores data in ordered way. Indexed based operation is possible. It can contain duplicate values. It can contain multiple null values.
+
+Queue
+- First In First Out
+
+Set
+- It can not contain duplicate values.
+- It can have maximum one null value.
+- Insertion order is not maintained in the set.(except LinkedHashSet)
+
+Map
+- It stores data in key-value pair
+
+Collections
+- An utility class which is used for Collection classes (ArrayList, LinkedList etc.)
+
+Arrays
+- An utility class which is used for normal array.
+
+
+Iterator can be used for the classes which implements Iterable interface.,
+
+for-each, Iterator, Enumeration these are used to iterate only Collection objects and not for Map.
+
+Set - HashSet
+Collection interface - methods
+List interface - methods
+
+Input => String str = "abxayya";
+Output => a b x y
+
+
+contains(),containAll(),remove(),removeAll(),retain(),retainAll() these methods internally uses equals() method. Remember Object class' equals() method does shallow comparison i.e. it compares references only. If we override equals() method in our class, we should also override the hashcode() method in such a way that if two objects are equals using equals() method, their hashcode should also be same.
+
+------------------------------------------------
+
+Map
+---
+Map allows to store the data in key/value pair.
+
+class Student
+{
+	int roll;
+	String name;
+	int age;
+}
+
+key ==> roll as by using roll we can uniquely identify any particular student.
+
+Possible key to uniquely identify any Indian citizen: Aadhar no., PAN card no., Driving License No. etc.
+
+Student ===> Map
+
+Roll (key) 	| Student (value or object)
+1		| Rohit
+2		| Sandesh
+3		| Geeta
+
+Implementing classes of Map are : HashMap,LinkedHashMap,TreeMap,HashTable
+
+put(key,value)
+------
+- It is used to add or update the elements in the Map. If we use put for any already existing key, it will update the value against that key.
+
+get(key)
+-----
+- It returns the value related with the passed key. If the key does not exist in the map, it will return null.
+
+EntrySet is backed by Map
+
+Map does not maintain insertion order (except LinkedHashMap).
+
+
+LinkedHashMap
+------------------
+Map elements:
+1.One : Student[1,Mohan,23]
+2.Two : Student[2,Geeta,22]
+3.Three : Student[3,Jacob,25]
+4.Four : Student[4,Riya,24]
+Student with roll 2: Geeta
+
+TreeMap
+--------
+Key based sorting
+
+Map elements:
+Four : Student[4,Riya,24]
+One : Student[1,Mohan,23]
+Three : Student[3,Jacob,25]
+Two : Student[2,Geeta,22]
+Student with roll 2: Geeta
+
+
+Que. can Map can null as a key ??
+Ans. Yes, map can have null as key and there will be only one such key as we know map contains unique keys.
+
+Practice all the below mentioned on String and any User defined object like Student.
+List -> ArrayList,LinkedList (List interface methods)
+Set -> HashSet,LinkedHashSet,TreeSet (Set interface methods)
+Map -> HashMap,LinkedHashMap, TreeMap (Map interface methods)
+Collections utility class methods.
+Arrays utility class methods.
+
+ppt - 14 to 17, 26 to 28, 31, 45, 46
+
+
+
+Vector is just like ArrayList but it is synchronized.
+HashMap is not synchronized however HashTable is synchronized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

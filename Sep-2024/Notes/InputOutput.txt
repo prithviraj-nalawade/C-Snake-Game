@@ -1,0 +1,92 @@
+Input/Output can be done using:
+1. Byte stream
+2. Character stream
+
+File f = new File("myfile.txt");		//new File(path of the file)
+
+Byte stream
+------------
+FileInputStream - To read from the file.
+FileOutputStream - To write to the file.
+
+BufferedInputStream - Buffer based read
+BufferedOutputStream - Buffer based write
+
+//File object create
+//File Input Stream create
+//File Output Stream create
+//Read from the file using FileInputStream
+//Write to the file using FileOutputStream
+//Close the both the stream
+
+
+Character stream
+------------
+FileReader - To read from the file.
+FileWriter - To write to the file.
+
+BufferedReader - Buffer based read
+BufferedWriter - Buffer based write
+
+//File object create
+//FileReader create
+//FileWriter create
+//Read from the file using FileReader
+//Write to the file using FileWriter
+//Close the both reader and writer
+
+
+read() ==> returns -1 when EOF (end of file) is reached.
+readLine() ==> returns null when EOF (end of file) is reached.
+
+
+System.in ==> Keyboard
+System.out ==> monitor
+
+----------------------------------
+Serialization/Deserialization
+
+FileInputStream
+ObjectInputStream    - readObject()
+
+FileOutputStream
+ObjectOutputStream	- writeObject()
+
+class Student
+{
+	transient int roll;		//if any data member is declared transient, then that data member 
+					//will not be the part of the serialization.	
+}
+
+An object of class can only be serialized only if the class has implemented the Serializable interface.
+
+Serializable interface is a marker interface.
+
+------------------------------------
+
+NIO package - New Input Output 
+-------------------------------
+IO - Stream based, NIO - Buffer based
+IO - Blocking I/O, NIO - Non-blocking I/O
+
+NIO - Channel, Buffer, Selector
+
+FileChannel
+ByteBuffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
